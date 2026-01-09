@@ -1,5 +1,5 @@
 ## Raspberry Pi SOC Honeypot — Real-Time Attack Monitoring & Alerting
-
+---
 ## PROJECT GOAL
 Build a single device solution that functions as a mini SOC sensor and analysis node, providing:
 - Real attacker interaction (SSH/Telnet honeypot)
