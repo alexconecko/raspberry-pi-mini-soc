@@ -6,6 +6,8 @@ sudo apt install ufw fail2ban htop curl git -y
 ```
 Reduces vulnerabilities from outdated packages and provides baseline protection against common attacks.
 
+I would suggest `sudo reboot` after this.
+
 ## Firewall
 Opens only necessary ports and enables the firewall to enforce network restrictions.
 ```
