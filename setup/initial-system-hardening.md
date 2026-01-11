@@ -26,6 +26,8 @@ sudo usermod -aG sudo socadmin
 ```
 Minimizes risk by separating administrative access from the default account and applying the principle of least privilege.
 
+Verify privileges with `groups socadmin`
+
 ## SSH Key Setup
 Generate Key
 ```
