@@ -123,6 +123,49 @@ A basic security baseline was applied to the Raspberry Pi before deploying the S
 - Cowrie runs as a non-root user
 - Logging and visualisation services are separated logically
 
+
+# DIAGRAM
+
+             ┌───────────────────────────────┐
+             │      Admin Workstation        │
+             │  (Laptop/Desktop, Trusted)   │
+             │                               │
+             │ SSH Key Access → 52222       │
+             └─────────────┬─────────────────┘
+                           │
+                           │ SSH (Admin)
+                           │
+                           ▼
+             ┌───────────────────────────────┐
+             │       Raspberry Pi 4 (8GB)   │
+             │       Ubuntu Server 24.04    │
+             │ Headless, Hardened, ARM64    │
+             │                               │
+             │ ┌───────────────┐             │
+             │ │ Cowrie        │             │
+             │ │ Honeypot      │             │
+             │ │ SSH 22        │             │
+             │ └───────────────┘             │
+             │        │                        │
+             │        ▼                        │
+             │  JSON Logs Output               │
+             │                                │
+             │ ┌───────────────┐             │
+             │ │ Loki          │             │
+             │ │ Log Storage   │<────────────┘
+             │ └───────────────┘
+             │        │
+             │        ▼
+             │ ┌───────────────┐
+             │ │ Grafana       │
+             │ │ Dashboards &  │
+             │ │ Alerts        │
+             │ └───────────────┘
+             │
+             └───────────────────────────────┘
+
+
+
 ---
 
 ## Architectural Summary
