@@ -6,9 +6,9 @@ The overall goal of the project is to demonstrate core SOC concepts such as moni
 
 ---
 
-## Operating System: Ubuntu Server 22.04 LTS (ARM64)
+## Operating System: Ubuntu Server 24.04 LTS (ARM64)
 
-Ubuntu Server 22.04 LTS was chosen as the operating system for this project for stability, compatibility, and long-term support.
+Ubuntu Server 24.04 LTS was chosen as the operating system for this project for stability, compatibility, and long-term support.
 
 ### Long-Term Support and Reliability
 Ubuntu Server LTS releases receive security updates and bug fixes for several years. This makes it suitable for a security monitoring system that is expected to run continuously without frequent major upgrades.
