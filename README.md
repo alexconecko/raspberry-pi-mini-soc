@@ -13,7 +13,7 @@ This is hands on learning about defensive monitoring.
 
 ## Tech Stack
 Core Components
-- OS: Ubuntu Server 22.04 LTS (ARM64)
+- OS: Ubuntu Server 24.04 LTS (ARM64)
 - Honeypot: Cowrie (SSH & Telnet)
 - Log Store: Loki (JSON logs, label-based)
 - Visualisation & Alerts: Grafana
