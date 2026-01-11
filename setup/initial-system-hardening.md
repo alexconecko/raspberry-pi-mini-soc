@@ -28,20 +28,24 @@ Minimizes risk by separating administrative access from the default account and 
 
 Verify privileges with `groups socadmin`
 
+`exit` and SSH back in as your new user. 
+
 ## SSH Key Setup
-Generate Key
+Generate Key (You do this on the Pi and the other device)
 ```
 ssh-keygen -t ed25519
 ```
 - File location: Enter (default)
 - Passphrase: Enter (empty for now)
 
-Install Public Key on Pi
-On Windows:
+Copy main device key to Pi
+On main device (Windows):
+Type:
 ```
 type %USERPROFILE%\.ssh\id_ed25519.pub
 ```
 Copy the entire line.
+
 On the Pi (as `socadmin`)
 ```
 mkdir -p ~/.ssh
