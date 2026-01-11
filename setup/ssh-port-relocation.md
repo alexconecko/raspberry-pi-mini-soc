@@ -4,7 +4,7 @@ It reduces attack surface while maintaining key based authentication and monitor
 
 ---
 
-# IMPLEMENTATION
+## IMPLEMENTATION
 Do this after initial system hardening.
 
 Edit SSH config
