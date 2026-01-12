@@ -5,6 +5,17 @@ For our purposes, and ease of install I will simply install Promtail manually.
 
 ### Install Procedure
 Since our systems is Ubuntu/Debian based:
+
+Move to a temp folder:
+```
+cd /tmp
+```
+
+Download Promtail .deb for ARM64:
+```
+wget https://github.com/grafana/loki/releases/download/v3.6.3/promtail_3.6.3_arm64.deb
+```
+
 ```
 sudo dpkg -i promtail_3.6.3_arm64.deb
 sudo systemctl enable promtail
