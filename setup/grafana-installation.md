@@ -31,7 +31,7 @@ sudo ufw allow 3000/tcp
 sudo ufw status
 ```
 
-## Configure Grafana
+## Configure Grafana Data Source
 1. Log in to Grafana (default http://<your-server>:3000, user admin).
 2. Go to Settings → Data Sources → Add data source.
 3. Select Loki.
@@ -45,5 +45,41 @@ This is because Grafana can talk directly to Loki on the same machine.
 
 5. Click Save & Test
    - Should say "Data source successfully connected."
+  
+## Add Dashboard Panels
+ 1. Go to Dashboards
+ 2. Select Loki Data Source
+ 3. Add Visualisation
+ 4. Add/Edit Panel
+
+For the purposes of this project we will switch editor to "Code" (do not use Builder)
+
+**Paste these EXACT queries:**
+
+SSH Login Attempts Over Time
+Panel type: Time series
+```
+count_over_time({job="cowrie"}[1m])
+```
+Top Source IPs
+Panel type: Bar chart
+```
+topk(10, count_over_time({job="cowrie"} | json | src_ip!="" [1h]))
+```
+Top Usernames
+Panel type: Bar Chart (Horizontal)
+```
+topk(10, count_over_time({job="cowrie"} | json | username!="" [1h]))
+```
+Commands Executed
+Panel type: Table
+```
+count_over_time({job="cowrie"} | json | eventid="cowrie.command.input" [1h])
+```
+Session Counts
+Panel type: Time series
+```
+count_over_time({job="cowrie"} | json | eventid="cowrie.session.closed" [1h])
+```
 
 
