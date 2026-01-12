@@ -33,3 +33,33 @@ sudo systemctl status promtail
 You should now see the service as active.
 
 On installation, generally it automatically sets itself to start at boot.
+
+### Configure Promtail to scrape Cowrie logs
+Edit Promtail config and add new scrape to scrape section:
+```
+sudo nano /etc/promtail/config.yml
+```
+
+Add under default job:
+```
+- job_name: cowrie
+    static_configs:
+    - targets:
+        - localhost
+      labels:
+        job: cowrie
+        __path__: /home/cowrie/cowrie/var/log/cowrie/cowrie.json
+```
+- `job: cowrie` → label you can use in Grafana queries
+- `__path__` → points to your actual Cowrie JSON log
+
+## Restart and verify:
+```
+sudo systemctl restart promtail
+sudo systemctl status promtail
+```
+Check Promtail logs:
+```
+sudo journalctl -u promtail -f
+```
+Look for lines like `POST /loki/api/v1/push 200 OK` → that means logs are successfully shipped.
