@@ -59,7 +59,7 @@ For the purposes of this project we will switch editor to "Code" (do not use Bui
 SSH Login Attempts Over Time
 Panel type: Time series
 ```
-count_over_time({job="cowrie"}[1m])
+count_over_time({job="cowrie"} | json | eventid="login" [1m])
 ```
 Top Source IPs
 Panel type: Bar chart
