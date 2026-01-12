@@ -80,5 +80,14 @@ sudo chmod o+x /home/cowrie/cowrie/var/log
 sudo chmod o+x /home/cowrie/cowrie/var/log/cowrie
 ```
 Then restart and verify.
+```
+curl -G http://localhost:3100/loki/api/v1/query_range \
+  --data-urlencode 'query={job="cowrie"}' \
+  --data-urlencode "start=$(($(date +%s%N)-3600000000000))" \
+  --data-urlencode "end=$(date +%s%N)"
+```
+- You should see JSON with `streams` containig Cowrie logs.
+- If it's empty, check Promtail logs again and make sure the tailer seeked from
+  the beginning on first run.
 
 
