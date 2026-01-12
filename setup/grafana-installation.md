@@ -16,3 +16,19 @@ sudo systemctl enable grafana-server
 ```
 sudo systemctl status grafana-server
 ```
+
+## Web Interface
+In a browser, go to:
+`http://<pi_ip>:3000`
+- Replace with the Pi's IP.
+- Login with Grafana credentials, by default should be `admin:admin`
+
+You should now be able to connect remotely, on the same network.
+
+If this fails, you may need to check firewall:
+```
+sudo ufw allow 3000/tcp
+sudo ufw status
+```
+
+
