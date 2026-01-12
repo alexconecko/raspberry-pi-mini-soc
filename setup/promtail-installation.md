@@ -1,0 +1,17 @@
+## ALTERNATIVE ARRANGEMENTS
+As mentioned in Loki Setup: Promtail will be EOL as of March 2026, docs reference installing Promtail which will not work.
+
+For our purposes, and ease of install I will simply install Promtail manually.
+
+### Install Procedure
+Since our systems is Ubuntu/Debian based:
+```
+sudo dpkg -i promtail_3.6.3_arm64.deb
+sudo systemctl enable promtail
+sudo systemctl start promtail
+sudo systemctl status promtail
+```
+If there are missing dependencies, fix with:
+```
+sudo apt-get install -f
+```
