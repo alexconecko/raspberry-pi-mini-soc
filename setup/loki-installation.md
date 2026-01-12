@@ -5,3 +5,16 @@ https://grafana.com/docs/loki/latest/setup/install/
 Note: Promtail will be EOL as of March 2026, docs reference installing `Promtail` which will
 not work. `Alloy` has effectively replaced Promtail as Alloy serves as a unified agent for logs, 
 metrics, and traces, offering more flexibility and future-proofing.
+
+## Note
+
+Loki should run as a system service (```systemd```), it starts automatically at boot,
+otherwise you start it manually using:
+```
+systemctl start loki
+```
+Verify:
+```
+systemctl status loki
+```
+You should see the service as ```active```
