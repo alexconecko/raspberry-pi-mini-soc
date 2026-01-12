@@ -17,3 +17,7 @@ You should see something to the effect of:
 ```
 tcp   LISTEN 0   50   0.0.0.0:22   0.0.0.0:*   users:(("twistd",pid=4318,fd=11))
 ```
+
+## Log and Config paths (general)
+- `cowrie logs: /home/cowrie/cowrie/var/log/cowrie`
+- `cowrie cfg: /home/cowrie/cowrie/etc`
